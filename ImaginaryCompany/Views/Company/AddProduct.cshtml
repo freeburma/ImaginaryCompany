@@ -1,0 +1,60 @@
+﻿@*@model ImaginaryCompany.Models.Product;*@
+@model ImaginaryCompany.ViewModels.ProductViewModel;
+
+@{
+    ViewData["Title"] = "Add Product Page";
+}
+
+
+
+<div class="container">
+
+    <div class="col-md-6">
+        <h4 class="text-info">@ViewBag.Title</h4>
+    </div>
+    <div class="col-md-6">
+
+        <form asp-controller="Company" asp-action="AddProduct" method="post">
+
+            <div class="form-group">
+                <label asp-for="CategoryId">Category</label>
+                <select class="form-control" asp-for="CategoryId" required>
+                    <option>-- Select --</option>
+                    @foreach (var category in Model.CategoryList)
+                    {
+                        <option value="@category.CategoryId">@category.CategoryName</option>
+                    }
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Product.ProductName"></label>
+                <input type="text" asp-for="Product.ProductName" class="form-control" placeholder="Enter Product Name" required />
+                <span asp-validation-for="Product.ProductName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Product.Quantity"></label>
+                <input type="text" asp-for="Product.Quantity" class="form-control" placeholder="Enter Product Name" required />
+                <span asp-validation-for="Product.Quantity" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Product.Price"></label>
+                <input type="text" asp-for="Product.Price" class="form-control" placeholder="Enter Product Name" required />
+                <span asp-validation-for="Product.Price" class="text-danger"></span>
+            </div>
+
+
+
+            <button class="btn btn-info float-right" type="submit">Add Product</button>
+        </form>
+    </div>
+
+     <br />
+    <div class="col-md-6">
+        <a class="btn btn-outline-secondary" asp-controller="Company" asp-action="ProductList"> << Back to Product List</a>
+    </div>
+</div>
+

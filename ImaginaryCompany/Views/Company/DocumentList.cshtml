@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ImaginaryCompany.Models.FileHistory>
+
+@{
+    ViewData["Title"] = "Document List";
+}
+
+<div class="container">
+    <div class="col-md-12">
+        <h5 class="text-info">File History</h5>
+
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>File Name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var pdf in Model)
+                    {
+                        <tr>
+                            <td>@pdf.Id</td>
+                            <td>@pdf.FileName</td>
+                            <td>
+                                <a asp-controller="Company" asp-action="DownloadPDF" asp-route-id="@pdf.Id">Download</a> |
+                                <a asp-controller="Company" asp-action="#" asp-route-id="@pdf.Id">Delete (Not Implemented Yet)</a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

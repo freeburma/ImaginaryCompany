@@ -1,0 +1,32 @@
+﻿@model ImaginaryCompany_Starter.Models.Category;
+
+@{
+    ViewData["Title"] = "Edit Category Page";
+}
+
+<div class="container">
+    <div class="col-md-6">
+        <h4 class="text-info">@ViewBag.Title</h4>
+    </div>
+
+    <div class="col-md-6">
+        <form asp-controller="Company" asp-action="EditCategory" method="post">
+            <input type="hidden" asp-for="CategoryId" />
+            <div class="form-group">
+                <label asp-for="CategoryName"></label>
+                <input type="text" asp-for="CategoryName" class="form-control" placeholder="Enter Product Name" required />
+                <span asp-validation-for="CategoryName" class="text-danger"></span>
+            </div>
+
+            <button class="btn btn-info float-right" type="submit">Edit Category</button>
+
+        </form>
+    </div>
+
+    <br />
+    <div class="col-md-6">
+        <a class="btn btn-outline-secondary" asp-controller="Company" asp-action="ProductList"> << Back to Product List</a>
+    </div>
+</div>
+
+

@@ -1,0 +1,92 @@
+﻿@model ImaginaryCompany_Starter.ViewModels.ProductCategoryViewModel;
+
+@{
+    ViewData["Title"] = "Product List";
+}
+
+<div class="container">
+    <div class="col-md-12">
+        <h5 class="text-info">Products</h5>
+
+        <div class="row">
+            <a class="btn btn-light" asp-controller="Company" asp-action="AddProduct">Add Product</a>
+            <a class="btn btn-outline-info" asp-controller="Company" asp-action="GenerateProductPDF"> <i class="far fa-file-pdf" style="font-size: 23px; color: darkred;"></i> PDF</a>
+
+        </div>
+        <br />
+
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>ProductName</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var product in Model.ProductList)
+                    {
+                        <tr>
+                            <td>@product.ProductId</td>
+                            <td>@product.ProductName</td>
+                            <td>@product.Quantity</td>
+                            <td>@product.Price</td>
+                            <td>
+                                <a asp-controller="Company" asp-action="EditProduct" asp-route-id="@product.ProductId">Edit</a> |
+                                <a asp-controller="Company" asp-action="DeleteProduct" asp-route-id="@product.ProductId">Delete</a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+
+<hr /><br />
+
+<div class="container">
+    <div class="col-md-6">
+        <h5 class="text-info">Category</h5>
+
+        <div class="row">
+            <a class="btn btn-light" asp-controller="Company" asp-action="AddCategory">Add Category</a>
+        </div>
+        <br />
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Category Name</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var category in Model.CategoryList)
+                {
+                    <tr>
+                        <td>@category.CategoryId</td>
+                        <td>@category.CategoryName</td>
+                        <td class="text-right">
+                            <a asp-controller="Company" asp-action="EditCategory" asp-route-id="@category.CategoryId">Edit</a> |
+                            <a asp-controller="Company" asp-action="DeleteCategory" asp-route-id="@category.CategoryId">Delete</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
