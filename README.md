@@ -1,13 +1,14 @@
 ## Generation PDF Document in .Net Core
 
 
-We will create PDF document using iTextSharp. We are going to get data form database and will generate a PDF document. All the generated documents will store in "wwwroot/documents". 
+We will create PDF document using <b>iTextSharp</b>. We are going to get data form database and will generate a PDF document. All the generated documents will store in "wwwroot/documents". 
 
 
 ### How to run 
 
 #### Command Line 
-$ dotnet watch run 
+$ dotnet run (Run as a webserver for a single compilation)
+$ dotnet watch run (Run as a webserver for multiple compilations)
 
 #### VisualStudio 
  <strong> F5 or Click Run</strong>
