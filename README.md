@@ -7,7 +7,7 @@ We will create PDF document using <b>iTextSharp</b>. We are going to get data fo
 ### How to run 
 
 #### Command Line 
-$ dotnet run (Run as a webserver for a single compilation)
+$ dotnet run (Run as a webserver for a single compilation) <br />
 $ dotnet watch run (Run as a webserver for multiple compilations)
 
 #### VisualStudio 
