@@ -1,4 +1,4 @@
-## Generating PDF Document in .Net Core
+## Generating PDF Documents in .Net Core
 
 
 We will create PDF document using <b>iTextSharp</b>. We are going to get data form database and will generate a PDF document. All the generated documents will store in "wwwroot/documents". 
